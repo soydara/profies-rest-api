@@ -35,6 +35,11 @@ IV. Push code to github
 		- command: git add .
 		- command: git commit -am "description your pust"
 		- command: git push origin
+		
+**** Login vagrant server:
+		- command: vagrant ssh
+		- command: cd /vagrant
+		- command: source ~/env/bin/activate
 
 5.	Create Django app
 		1. Create Python Virtual Environment
@@ -69,6 +74,23 @@ IV. Push code to github
 6. Setup the Database
 		1. What are Django Models
 		2. Create our user database model
-		
+			- model.py file
+		3. Add a user model manager
+		4. Set our custom user model
+			- Add code in "settings.py"
+				code:
+					AUTH_USER_MODEL = 'profiles_api.UserProfile'
+		5. Create migrations and sync DB
+			- command: python manage.py makemigrations profiles_api
+			- command: python manage.py migrate
+			
+7. Setup Django Admin
+		1. Creating a superuser
+			- Login vagrant server:
+			- command: python manage.py createsuperuser
+				- Input field => 
+					Email: soydara168@gmail.com
+					Name: Soy Dara
+					Password: dara@123
 		
 		
