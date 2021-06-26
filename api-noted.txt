@@ -31,15 +31,18 @@ III. Create development server with Vagrant virtual machine
 		- test create test file command: touch test.txt
 		- command: ls
 		
-IV. Push code to github
+**** Push code to github
 		- command: git add .
 		- command: git commit -am "description your pust"
 		- command: git push origin
 		
-**** Login vagrant server:
+**** Login and run server vagrant server:
+		- command: vagrant up
 		- command: vagrant ssh
 		- command: cd /vagrant
 		- command: source ~/env/bin/activate
+		- command: python manage.py runserver 0.0.0.0:8000
+		- server is start with http://127.0.0.1:8000
 
 5.	Create Django app
 		1. Create Python Virtual Environment
@@ -93,4 +96,43 @@ IV. Push code to github
 					Name: Soy Dara
 					Password: dara@123
 		
-		
+		2. Enable Django Admin
+			- input code in file "admin.py"
+				code:
+					from profiles_api import models
+					admin.site.register(models.UserProfile)
+		3. Test Django Admin
+			- command: python manage.py runserver 0.0.0.0:8000
+
+8. Introduction to API Views	
+	1. What is an APIView
+	2. Create first APIView
+		- Add code in file "view.py"
+	3. Configure view URL
+		- create file urls.py at folder profiles_api
+		- Edit file "urls.py" in profiles_project
+		- Edit file "urls.py" in profiles_api
+	4. Testing our API View
+	5. Create a Serializer
+		- create file "serializers.py" in folder profiles_api
+	6. Add POST method to APIView
+		- code in views.py
+	7. Test POST Function	
+	8. Add PUT, PATCH and DELETE methods
+	
+9. Introduction to Viewsets	
+	1. What is a Viewset
+	2. Create a simple Viewset
+	3. Add URL Router
+	4. Testing our Viewset
+	5. Add create, retrieve, update, partial_update and destroy functions
+	6. Test Viewset
+					
+10. Create Profiles API
+	
+					
+					
+					
+					
+					
+					
