@@ -8,3 +8,9 @@ I. Deploy project to github
 		- create file .gitignore
 		- create file LICENSE
 		- deploy command: git add .
+		- command: git commit -am "Initial commit"
+		- Push code to github: 
+			- create repository on github
+			- command: git remote add origin https://github.com/soydara/profies-rest-api.git
+			- command: git push -u origin main
+		
