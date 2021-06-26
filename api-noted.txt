@@ -1,7 +1,12 @@
 
 ======= REST API Django Python ===========
-
-I. Deploy project to github
+I. Sotfware requiment:
+	1. Install python 3
+	2. Install git
+	3. Install Oracle VM VirtualBox
+	4. Install ModHeader extension for chrome
+	
+II. Deploy project to github
 	1. Teminal project folder: 
 		- command: git init
 		- create file README.md
@@ -13,4 +18,57 @@ I. Deploy project to github
 			- create repository on github
 			- command: git remote add origin https://github.com/soydara/profies-rest-api.git
 			- command: git push -u origin main
+
+III. Create development server with Vagrant virtual machine
+	
+		- command: vagrant init ubuntu/bionic64
+		- replace code in Vagrantfile "Copy code: https://gist.github.com/LondonAppDev/199eef145a21587ea866b69d40d28682"
+		- command: vagrant up
+		- command: vagrant ssh
+		- exit machine command: exit
+		- connect machine: vagrant ssh
+		- command: cd /vagrant
+		- test create test file command: touch test.txt
+		- command: ls
+		
+IV. Push code to github
+		- command: git add .
+		- command: git commit -am "description your pust"
+		- command: git push origin
+
+5.	Create Django app
+		1. Create Python Virtual Environment
+			- Login: vagrant:
+				- command: vagrant ssh
+				- command: cd /vagrant/
+				- command: python -m venv ~/env
+				- command: source ~/env/bin/activate
+				- command: deactivate
+			
+		2. Install required Python packages
+			- create file requirements.txt
+				Code:
+					django==3.2.4
+					djangorestframework==3.12.2
+		3. Create a new Django project & app
+			- command make sure terminal stay in (env) vagrant@ubuntu-bionic:/vagrant$
+				if not stay please command: source ~/env/bin/activate
+				: pip install -r requirements.txt
+			- command: django-admin.py startproject profiles_project .
+			- command: python manage.py startapp profiles_api
+		4. Enable our app in the Django settings file
+			- In folder profiles_project file "settings.py" add code in INSTALLED_APPS
+				code:
+					'rest_framework',
+					'rest_framework.authtoken',
+					'profiles_api',
+		5. Test and commit our changes
+			- command: python manage.py runserver 0.0.0.0:8000
+			- server is start with http://127.0.0.1:8000
+			
+6. Setup the Database
+		1. What are Django Models
+		2. Create our user database model
+		
+		
 		
