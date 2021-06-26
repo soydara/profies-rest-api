@@ -1,0 +1,10 @@
+
+======= REST API Django Python ===========
+
+I. Deploy project to github
+	1. Teminal project folder: 
+		- command: git init
+		- create file README.md
+		- create file .gitignore
+		- create file LICENSE
+		- deploy command: git add .
